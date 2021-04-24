@@ -77,6 +77,7 @@ public class CharacterController2D : MonoBehaviour
         if (Input.GetButton("Jump") && isGrounded)
         {
             r2d.velocity = new Vector2(r2d.velocity.x, jumpHeight) ;
+			animator.SetTrigger("jump");
         }
 
         // Camera follow
@@ -85,7 +86,12 @@ public class CharacterController2D : MonoBehaviour
             mainCamera.transform.position = new Vector3(t.position.x, t.position.y, cameraPos.z);
         }
 
-		animator.SetBool("isMoving", moveDirection != 0.0f);
+
+		animator.SetBool("isGrounded", isGrounded);
+		animator.SetBool("isFalling", r2d.velocity.y < 0f);
+		if (isGrounded) {
+			animator.SetBool("isMoving", moveDirection != 0.0f);
+		}
     }
 
     void FixedUpdate()
@@ -110,7 +116,7 @@ public class CharacterController2D : MonoBehaviour
         }
 
         // Apply movement velocity
-        r2d.velocity = new Vector2((moveDirection * transform.lossyScale.y) * maxSpeed, r2d.velocity.y);
+        r2d.velocity = new Vector2((moveDirection) * maxSpeed, r2d.velocity.y);
 
         // Simple debug
         Debug.DrawLine(groundCheckPos, groundCheckPos - new Vector3(0, colliderRadius, 0), isGrounded ? Color.green : Color.red);

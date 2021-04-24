@@ -1259,7 +1259,7 @@ PrefabInstance:
       objectReference: {fileID: 928752424}
     - target: {fileID: 4663014491209105329, guid: f71166fd272f440a6ab858743ee841fc, type: 3}
       propertyPath: portalPosition.x
-      value: 0.5
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6307432453975802517, guid: f71166fd272f440a6ab858743ee841fc, type: 3}
       propertyPath: m_Name
@@ -1275,7 +1275,7 @@ PrefabInstance:
       objectReference: {fileID: 928752424}
     - target: {fileID: 8505646265781357100, guid: f71166fd272f440a6ab858743ee841fc, type: 3}
       propertyPath: portalPosition.x
-      value: 0.5
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8505646265781357100, guid: f71166fd272f440a6ab858743ee841fc, type: 3}
       propertyPath: portalInDirection.x
