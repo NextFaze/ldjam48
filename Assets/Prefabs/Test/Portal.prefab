@@ -74,12 +74,12 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 7482667652216324306, guid: 48e93eef0688c4a259cb0eddcd8661f7, type: 3}
-  m_Color: {r: 0.44231373, g: 0.764151, b: 0.2559185, a: 1}
+  m_Sprite: {fileID: 3286163911610860551, guid: 7c95dc24054694464a5ed90dbd90d149, type: 3}
+  m_Color: {r: 0.15686275, g: 0.15686275, b: 0.15686275, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 0.4994752, y: 1.5366495}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -97,8 +97,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe4132a975c7c44638d8a6097dcdf426, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  world: {fileID: 0}
-  portalTransform: {fileID: 321478641487118793}
+  levelTransform: {fileID: 0}
+  portalInDirection: {x: 1, y: 0, z: 0}
+  portalPosition: {x: 3, y: 0, z: 0}
 --- !u!61 &-6749004323033357839
 BoxCollider2D:
   m_ObjectHideFlags: 0
