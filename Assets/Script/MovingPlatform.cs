@@ -45,7 +45,6 @@ public class MovingPlatform : MonoBehaviour
         // Check if the position of the cube and sphere are approximately equal.
         if (Vector3.Distance(transform.localPosition, targetPosition) == 0.0f)
         {
-            Debug.Log($"{transform.localPosition}, {targetPosition}");
             movingToEnd = !movingToEnd;
         }
     }

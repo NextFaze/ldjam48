@@ -46,9 +46,9 @@ public class CharacterController2D : MonoBehaviour
     void Update()
     {
         // Movement controls
-        if ((Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.D)))
+        if (Input.GetAxis("Horizontal") != 0)
         {
-            moveDirection = Input.GetKey(KeyCode.A) ? -1 : 1;
+            moveDirection = Input.GetAxis("Horizontal");
         }
         else
         {
@@ -74,7 +74,7 @@ public class CharacterController2D : MonoBehaviour
         }
 
         // Jumping
-        if (Input.GetKeyDown(KeyCode.W) && isGrounded)
+        if (Input.GetButton("Jump") && isGrounded)
         {
             r2d.velocity = new Vector2(r2d.velocity.x, jumpHeight) ;
         }
