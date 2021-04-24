@@ -387,6 +387,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1fded24b6677f4bdb97c1268e3ffbfaf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  lastSpawnPosition: {x: 0, y: 0, z: 0}
+  playerRigidBody: {fileID: 1831342665}
 --- !u!4 &313577449 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8284328442069348731, guid: 3c38b00e1babf4ff0800cf57eb14420b, type: 3}
@@ -1589,6 +1591,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 42287190eee26416c94547a3b0fed817, type: 3}
+--- !u!50 &1831342665 stripped
+Rigidbody2D:
+  m_CorrespondingSourceObject: {fileID: 4629776358992416842, guid: 90b8d2e68709c44c89b44b53c2d11100, type: 3}
+  m_PrefabInstance: {fileID: 1540845059}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &1881932342 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3653495681122900709, guid: eb6b4063dc43f474cb6fb93b384b07b2, type: 3}
