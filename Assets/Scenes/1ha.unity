@@ -387,7 +387,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1fded24b6677f4bdb97c1268e3ffbfaf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lastSpawnPosition: {x: 0, y: 0, z: 0}
+  lastSpawnPosition: {x: -8.75, y: -2.5, z: 0}
   playerRigidBody: {fileID: 1831342665}
 --- !u!4 &313577449 stripped
 Transform:
@@ -1163,6 +1163,10 @@ PrefabInstance:
       propertyPath: levelTransform
       value: 
       objectReference: {fileID: 928752424}
+    - target: {fileID: 4663014491209105329, guid: f71166fd272f440a6ab858743ee841fc, type: 3}
+      propertyPath: portalPosition.x
+      value: 0.5
+      objectReference: {fileID: 0}
     - target: {fileID: 6307432453975802517, guid: f71166fd272f440a6ab858743ee841fc, type: 3}
       propertyPath: m_Name
       value: 0ha
@@ -1175,6 +1179,10 @@ PrefabInstance:
       propertyPath: levelTransform
       value: 
       objectReference: {fileID: 928752424}
+    - target: {fileID: 8505646265781357100, guid: f71166fd272f440a6ab858743ee841fc, type: 3}
+      propertyPath: portalPosition.x
+      value: 0.5
+      objectReference: {fileID: 0}
     - target: {fileID: 8505646265781357100, guid: f71166fd272f440a6ab858743ee841fc, type: 3}
       propertyPath: portalInDirection.x
       value: -1
