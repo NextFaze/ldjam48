@@ -42,15 +42,9 @@ public class Portal : MonoBehaviour
                 portalPositionOffset *= -1;
             }
             Debug.Log($"Scaling world by {scaleFactor}");
-            
-            // Move this to either a DI thing, or game message
-            var gameManager = FindObjectOfType(typeof(GameManager)) as GameManager;
-            gameManager.gameObject.transform.localScale /= scaleFactor;
 
-            // Replace with animated to new position
-            rb.isKinematic = true;
-            rb.transform.position = transform.position + portalPositionOffset;
-            rb.isKinematic = false;
+            GameManager.Instance.TeleportPlayer(scaleFactor);
+            GameManager.Instance.RespawnPlayer(transform.position + portalPositionOffset);
         }
     }
 }
