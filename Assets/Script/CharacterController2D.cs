@@ -8,6 +8,8 @@ using UnityEngine.Events;
 [RequireComponent(typeof(CapsuleCollider2D))]
 public class CharacterController2D : MonoBehaviour
 {
+	public Animator animator;
+
     // Move player in 2D space
     public float maxSpeed = 3.4f;
     public float jumpHeight = 6.5f;
@@ -82,6 +84,8 @@ public class CharacterController2D : MonoBehaviour
         {
             mainCamera.transform.position = new Vector3(t.position.x, t.position.y, cameraPos.z);
         }
+
+		animator.SetBool("isMoving", moveDirection != 0.0f);
     }
 
     void FixedUpdate()

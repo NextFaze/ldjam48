@@ -20,8 +20,8 @@ public class Portal : MonoBehaviour
     private void OnDrawGizmos() {
         
         Gizmos.color = Color.yellow;
-        Gizmos.DrawWireSphere(transform.position, .2f);
-        Gizmos.DrawLine(transform.position, transform.position + portalInDirection.normalized);
+        // Gizmos.DrawWireSphere(transform.position, .2f);
+        Gizmos.DrawLine(transform.position, transform.position + portalInDirection.normalized * transform.lossyScale.z);
     }
 
     private void OnTriggerExit2D(Collider2D other) {
