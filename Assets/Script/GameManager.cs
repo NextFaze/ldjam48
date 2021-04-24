@@ -14,6 +14,10 @@ public class GameManager : MonoBehaviour
     public Transform levelTransform;
     public Vector3 lastSpawnPosition;
     public Rigidbody2D playerRigidBody;
+    public int DeathCount {
+        get;
+        private set;
+    }
 
     private AudioSource audioSource;
     public AudioClip start;
@@ -45,6 +49,7 @@ public class GameManager : MonoBehaviour
         }
 
         playerRigidBody = player.GetComponent<Rigidbody2D>();
+        DeathCount = 0;
 
         audioSource.PlayOneShot(start, 0.7F);
         gameStartTime = DateTime.Now;
@@ -66,6 +71,7 @@ public class GameManager : MonoBehaviour
 
     public void KillPlayer() {
         audioSource.PlayOneShot(death, 0.7F);
+        DeathCount++;
         RespawnPlayer(lastSpawnPosition);
     }
 

@@ -8,7 +8,7 @@ ScriptedImporter:
   assetBundleName: 
   assetBundleVariant: 
   script: {fileID: 11500000, guid: a57477913897c46af95d590f580878bd, type: 3}
-  svgType: 0
+  svgType: 1
   texturedSpriteMeshType: 0
   svgPixelsPerUnit: 100
   gradientResolution: 64
@@ -34,22 +34,22 @@ ScriptedImporter:
   wrapMode: 0
   filterMode: 1
   sampleCount: 4
-  preserveSVGImageAspect: 0
+  preserveSVGImageAspect: 1
   useSVGPixelsPerUnit: 0
   spriteData:
     TessellationDetail: 0
     SpriteRect:
-      name: 
+      name: skull
       originalName: 
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       alignment: 0
       border: {x: 0, y: 0, z: 0, w: 0}
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 0
-        height: 0
+        width: 256
+        height: 244
       spriteID: 8a31dd6e8681b45498e5c5f3cf195858
       internalID: 0
     PhysicsOutlines: []
