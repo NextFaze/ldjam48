@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 3413765454970432883}
   - component: {fileID: 3413765454970432882}
   - component: {fileID: 3413765454970432881}
+  - component: {fileID: 2546034285772381303}
   m_Layer: 0
   m_Name: LevelCamera
   m_TagString: MainCamera
@@ -84,6 +85,18 @@ AudioListener:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3413765454970432880}
   m_Enabled: 1
+--- !u!114 &2546034285772381303
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3413765454970432880}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 072148bbef7a447acb6d40c39999d4c4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1040143594468538551
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -229,11 +242,35 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6799942139564252726, guid: f057618522643476fa6d4c5dee4109db, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 1832.5751
+      value: 1624.5751
       objectReference: {fileID: 0}
     - target: {fileID: 6799942139564252726, guid: f057618522643476fa6d4c5dee4109db, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6799942139667925401, guid: f057618522643476fa6d4c5dee4109db, type: 3}
+      propertyPath: m_Padding.m_Top
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6799942139667925401, guid: f057618522643476fa6d4c5dee4109db, type: 3}
+      propertyPath: m_Padding.m_Left
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6799942139667925401, guid: f057618522643476fa6d4c5dee4109db, type: 3}
+      propertyPath: m_Padding.m_Right
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6799942139667925406, guid: f057618522643476fa6d4c5dee4109db, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: -224
+      objectReference: {fileID: 0}
+    - target: {fileID: 6799942139667925406, guid: f057618522643476fa6d4c5dee4109db, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -16
+      objectReference: {fileID: 0}
+    - target: {fileID: 6799942139667925406, guid: f057618522643476fa6d4c5dee4109db, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -64
       objectReference: {fileID: 0}
     - target: {fileID: 6799942139882740997, guid: f057618522643476fa6d4c5dee4109db, type: 3}
       propertyPath: m_Pivot.x
