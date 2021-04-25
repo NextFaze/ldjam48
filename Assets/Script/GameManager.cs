@@ -5,6 +5,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
+public delegate void VoidCallback();
+
 [RequireComponent(typeof(AudioSource))]
 public class GameManager : MonoBehaviour
 {
@@ -70,9 +72,21 @@ public class GameManager : MonoBehaviour
     }
 
     public void KillPlayer() {
+        var player = GameObject.FindWithTag("Player");
+        if(!player.GetComponent<CharacterController2D>().Enabled) {
+            return;
+        }
+        player.GetComponent<CharacterController2D>().Disable();
         audioSource.PlayOneShot(death, 0.7F);
         DeathCount++;
+        
+        StartCoroutine(ExecuteAfterTime(1.5f, RevivePlayer));
+    }
+
+    public void RevivePlayer () {
         RespawnPlayer(lastSpawnPosition);
+        var player = GameObject.FindWithTag("Player");
+        player.GetComponent<CharacterController2D>().Enable();
     }
 
     public void WinGame() {
@@ -90,5 +104,11 @@ public class GameManager : MonoBehaviour
         playerRigidBody.transform.position = position;
         playerRigidBody.velocity = Vector3.zero;
         playerRigidBody.isKinematic = false;
+    }
+
+     IEnumerator ExecuteAfterTime(float time, VoidCallback callback)
+    {
+        yield return new WaitForSeconds(time);
+        callback();
     }
 }

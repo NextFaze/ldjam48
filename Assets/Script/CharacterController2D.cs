@@ -18,12 +18,30 @@ public class CharacterController2D : MonoBehaviour
     public Camera mainCamera;
 
     bool facingRight = true;
+    bool controllerEnabled = true;
     float moveDirection = 0;
     bool isGrounded = false;
     Vector3 cameraPos;
     Rigidbody2D r2d;
     CapsuleCollider2D mainCollider;
     Transform t;
+
+    public bool Enabled
+    {
+        get => controllerEnabled;
+    }
+
+    public void Disable() {
+        r2d.constraints = RigidbodyConstraints2D.FreezeAll;
+        animator.speed = 0;
+        controllerEnabled = false;
+    }
+
+    public void Enable() {
+        r2d.constraints = RigidbodyConstraints2D.FreezeRotation;
+        animator.speed = 1;
+        controllerEnabled = true;
+    }
 
     // Use this for initialization
     void Start()
@@ -45,6 +63,10 @@ public class CharacterController2D : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if(!controllerEnabled) {
+            return;
+        }
+
         // Movement controls
         if (Input.GetAxis("Horizontal") != 0)
         {
@@ -80,12 +102,6 @@ public class CharacterController2D : MonoBehaviour
 			animator.SetTrigger("jump");
         }
 
-        // Camera follow
-        if (mainCamera)
-        {
-            mainCamera.transform.position = new Vector3(t.position.x, t.position.y, cameraPos.z);
-        }
-
 
 		animator.SetBool("isGrounded", isGrounded);
 		animator.SetBool("isFalling", r2d.velocity.y < 0f);
@@ -96,6 +112,10 @@ public class CharacterController2D : MonoBehaviour
 
     void FixedUpdate()
     {
+        if(!controllerEnabled) {
+            return;
+        }
+
         Bounds colliderBounds = mainCollider.bounds;
         float colliderRadius = mainCollider.size.x * 0.4f * Mathf.Abs(transform.localScale.x);
         Vector3 groundCheckPos = colliderBounds.min + new Vector3(colliderBounds.size.x * 0.5f, colliderRadius * 0.9f, 0);
@@ -121,5 +141,17 @@ public class CharacterController2D : MonoBehaviour
         // Simple debug
         Debug.DrawLine(groundCheckPos, groundCheckPos - new Vector3(0, colliderRadius, 0), isGrounded ? Color.green : Color.red);
         Debug.DrawLine(groundCheckPos, groundCheckPos - new Vector3(colliderRadius, 0, 0), isGrounded ? Color.green : Color.red);
+    }
+
+    void LateUpdate()
+    {
+        Vector3 cameraTargetPosition = new Vector3(t.position.x, t.position.y, cameraPos.z);
+        Vector3 smoothedPosition = Vector3.Lerp(mainCamera.transform.position, cameraTargetPosition, 0.005f);
+
+        // Camera follow
+        if (mainCamera)
+        {
+            mainCamera.transform.position = smoothedPosition;
+        }
     }
 }
