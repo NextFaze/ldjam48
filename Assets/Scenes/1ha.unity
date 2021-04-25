@@ -2210,7 +2210,7 @@ MonoBehaviour:
   lastSpawnPosition: {x: -8.75, y: -2.5, z: 0}
   playerRigidBody: {fileID: 1831342665}
   start: {fileID: 8300000, guid: fa6e09cebceaf442f8858e116a74cdbe, type: 3}
-  respawnClip: {fileID: 0}
+  respawnClip: {fileID: 8300000, guid: 16b9bdcced40743808eda5731e3ad445, type: 3}
   deathAudio:
   - {fileID: 8300000, guid: 1bb304c960da102418de4f35d1edb16e, type: 3}
   - {fileID: 8300000, guid: 385a62bf7678bb746ac8dab624103f14, type: 3}

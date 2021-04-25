@@ -80,7 +80,7 @@ public class GameManager : MonoBehaviour
         audioSource.PlayOneShot(deathAudio[UnityEngine.Random.Range(0, deathAudio.Length)], 2F);
         DeathCount++;
         
-        StartCoroutine(ExecuteAfterTime(0.1f, () => audioSource.PlayOneShot(respawnClip, 0.7F)));
+        StartCoroutine(ExecuteAfterTime(0.2f, () => audioSource.PlayOneShot(respawnClip, 0.7F)));
         StartCoroutine(ExecuteAfterTime(1.6f, RevivePlayer));
     }
 
