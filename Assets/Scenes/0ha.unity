@@ -286,6 +286,34 @@ PrefabInstance:
       propertyPath: m_Name
       value: PortalEnd
       objectReference: {fileID: 0}
+    - target: {fileID: 336048199487766474, guid: f71166fd272f440a6ab858743ee841fc, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -3.34
+      objectReference: {fileID: 0}
+    - target: {fileID: 336048199577318821, guid: f71166fd272f440a6ab858743ee841fc, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 5.85
+      objectReference: {fileID: 0}
+    - target: {fileID: 336048199577318821, guid: f71166fd272f440a6ab858743ee841fc, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -2.78
+      objectReference: {fileID: 0}
+    - target: {fileID: 336048200289795485, guid: f71166fd272f440a6ab858743ee841fc, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.54
+      objectReference: {fileID: 0}
+    - target: {fileID: 336048200289795485, guid: f71166fd272f440a6ab858743ee841fc, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -2.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 336048200408131385, guid: f71166fd272f440a6ab858743ee841fc, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -3.01
+      objectReference: {fileID: 0}
+    - target: {fileID: 336048200773167252, guid: f71166fd272f440a6ab858743ee841fc, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -2.69
+      objectReference: {fileID: 0}
     - target: {fileID: 3967257046151272909, guid: f71166fd272f440a6ab858743ee841fc, type: 3}
       propertyPath: m_Name
       value: PortalStart
