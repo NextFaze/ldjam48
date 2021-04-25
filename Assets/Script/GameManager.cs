@@ -21,7 +21,8 @@ public class GameManager : MonoBehaviour
 
     private AudioSource audioSource;
     public AudioClip start;
-    public AudioClip death;
+    public AudioClip respawnClip;
+    public AudioClip[] deathAudio;
 
     public DateTime gameStartTime = DateTime.Now;
     public DateTime gameEndTime = DateTime.MinValue;
@@ -51,7 +52,6 @@ public class GameManager : MonoBehaviour
         playerRigidBody = player.GetComponent<Rigidbody2D>();
         DeathCount = 0;
 
-        audioSource.PlayOneShot(start, 0.7F);
         gameStartTime = DateTime.Now;
         gameEndTime = DateTime.MinValue;
     }
@@ -70,7 +70,8 @@ public class GameManager : MonoBehaviour
     }
 
     public void KillPlayer() {
-        audioSource.PlayOneShot(death, 0.7F);
+        audioSource.PlayOneShot(deathAudio[UnityEngine.Random.Range(0, deathAudio.Length)], 2F);
+        audioSource.PlayOneShot(respawnClip, 0.7F);
         DeathCount++;
         RespawnPlayer(lastSpawnPosition);
     }

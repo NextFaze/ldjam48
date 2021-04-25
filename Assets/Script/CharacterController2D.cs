@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.Events;
+ using System.Collections;
 
 // Using Internet 2d Controller to get things rolling
 // https://sharpcoderblog.com/blog/2d-platformer-character-controller
@@ -9,7 +10,7 @@ using UnityEngine.Events;
 public class CharacterController2D : MonoBehaviour
 {
     private AudioSource audioSource;
-    public AudioClip jumpAudio;
+    public AudioClip[] jumpAudio;
 	public Animator animator;
 
     // Move player in 2D space
@@ -80,7 +81,7 @@ public class CharacterController2D : MonoBehaviour
         if (Input.GetButton("Jump") && isGrounded)
         {
             
-            audioSource.PlayOneShot(jumpAudio, 0.2F);
+            audioSource.PlayOneShot(jumpAudio[Random.Range(0, jumpAudio.Length)], 0.3F);
             r2d.velocity = new Vector2(r2d.velocity.x, jumpHeight) ;
 			animator.SetTrigger("jump");
         }
