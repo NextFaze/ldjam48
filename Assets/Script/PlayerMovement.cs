@@ -1,6 +1,7 @@
 using UnityEngine;
 
 [RequireComponent(typeof(CharacterController2D))]
+[RequireComponent(typeof(AudioSource))]
 public class PlayerMovement : MonoBehaviour {
     
     CharacterController2D controller;
@@ -9,6 +10,12 @@ public class PlayerMovement : MonoBehaviour {
     public float runSpeed =  40f;
     float horizontalMove = 0f;
     bool jump = false;
+
+
+    private AudioSource audioSource;
+    public AudioClip[] jumpAudio;
+
+
 
     public void Disable()
     {
@@ -26,6 +33,7 @@ public class PlayerMovement : MonoBehaviour {
 
     private void Awake() {
         controller = GetComponent<CharacterController2D>();
+        audioSource = GetComponent<AudioSource>();
     }
 
     private void Update() {
@@ -33,6 +41,7 @@ public class PlayerMovement : MonoBehaviour {
         animator.SetFloat("Speed", Mathf.Abs(horizontalMove));
 
         if (Input.GetButtonDown("Jump")) {
+            audioSource.PlayOneShot(jumpAudio[UnityEngine.Random.Range(0, jumpAudio.Length)], 2F);
             jump = true;
             animator.SetBool("isJumping", true);
         }
