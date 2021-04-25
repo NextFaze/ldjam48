@@ -153,6 +153,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0e2b4ab0231444a518c48e4d6fd9d60e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startPositionOffset: {x: 3, y: 0, z: 0}
-  endPositionOffset: {x: -3, y: 0, z: 0}
-  speed: 5
+  startPositionOffset: {x: 0, y: 0, z: 0}
+  endPositionOffset: {x: 6, y: 0, z: 0}
+  speed: 1

@@ -11,8 +11,8 @@ GameObject:
   - component: {fileID: 9149528280482478186}
   - component: {fileID: 1542630251925316528}
   - component: {fileID: 216801532950824931}
-  - component: {fileID: 1277293733729001080}
   - component: {fileID: -7959456610425822051}
+  - component: {fileID: 2685055803804392526}
   m_Layer: 0
   m_Name: moving_spike
   m_TagString: Untagged
@@ -97,8 +97,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b50f1b4b8b8dd439ab3e2a4d55fa2b49, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!61 &1277293733729001080
-BoxCollider2D:
+--- !u!114 &-7959456610425822051
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5594400404662359120}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0e2b4ab0231444a518c48e4d6fd9d60e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  startPositionOffset: {x: 0, y: 0, z: 0}
+  endPositionOffset: {x: 1, y: 0, z: 0}
+  speed: 1
+--- !u!60 &2685055803804392526
+PolygonCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -120,21 +135,13 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 0.3286177, y: 0.32909736}
-  m_EdgeRadius: 0
---- !u!114 &-7959456610425822051
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5594400404662359120}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0e2b4ab0231444a518c48e4d6fd9d60e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  startPositionOffset: {x: 0, y: 0, z: 0}
-  endPositionOffset: {x: 6, y: 0, z: 0}
-  speed: 1
+  m_Points:
+    m_Paths:
+    - - {x: -0.014347322, y: 0.16249907}
+      - {x: -0.12370122, y: 0.102771975}
+      - {x: -0.16299024, y: -0.015611291}
+      - {x: -0.10346, y: -0.1256074}
+      - {x: 0.008344665, y: -0.16366592}
+      - {x: 0.12233481, y: -0.10560577}
+      - {x: 0.16332716, y: 0.01395525}
+      - {x: 0.10525467, y: 0.1273674}
