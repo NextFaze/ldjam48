@@ -15,7 +15,7 @@ public class GameManager : MonoBehaviour
 
     public bool godMode = false;
 
-    public Transform levelTransform;
+    public Transform worldTransform;
     public Vector3 lastSpawnPosition;
     Rigidbody2D playerRigidBody;
     public int DeathCount {
@@ -39,6 +39,8 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    Stack<Transform> levelTransforms = new Stack<Transform>();
+
     void Start()
     {
         audioSource = GetComponent<AudioSource>();
@@ -53,6 +55,7 @@ public class GameManager : MonoBehaviour
             this.enabled = false;
         }
 
+        lastSpawnPosition = player.transform.position;
         playerRigidBody = player.GetComponent<Rigidbody2D>();
         DeathCount = 0;
 
@@ -69,8 +72,32 @@ public class GameManager : MonoBehaviour
             this.enabled = false;
         }
     }
-    public void TeleportPlayer(float scaleFactor) {
-        levelTransform.localScale /= scaleFactor;
+
+    public void TeleportPlayer(Portal portal, bool directionIn) {
+
+        var camTransform = portal.LevelTransform;
+        var scaleFactor = portal.ScaleFactor;
+        var portalPositionOffset = portal.PortalPositionOffset;
+
+        if (directionIn)
+        {
+            levelTransforms.Push(portal.LevelTransform);
+        }
+        else
+        {
+            // Popping out of portal
+            camTransform = levelTransforms.Pop();
+            scaleFactor = 1 / scaleFactor;
+            portalPositionOffset *= -1;
+        }
+
+        Debug.Log($"Scaling world by {scaleFactor}");
+        worldTransform.localScale /= scaleFactor;
+
+        RespawnPlayer(portal.transform.position + portalPositionOffset);
+
+        var cam = FindObjectOfType<PortalCamera>();
+        cam?.MoveCamera(camTransform.position);
     }
 
     public void KillPlayer() {

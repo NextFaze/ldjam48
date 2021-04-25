@@ -7,6 +7,7 @@ public class Portal : MonoBehaviour
     [SerializeField]
     [Tooltip("The root transform for the level, used to scale the world")]
     Transform levelTransform;
+    public Transform LevelTransform => levelTransform;
 
     [SerializeField]
     [Tooltip("Which way is 'in', and then scaled down")]
@@ -16,6 +17,9 @@ public class Portal : MonoBehaviour
     Vector3 portalPosition = new Vector3(3.0f, 0.0f, 0.0f);
 
     bool beenTriggered = false;
+
+    public float ScaleFactor => levelTransform.localScale.x;
+    public Vector3 PortalPositionOffset => Vector3.Scale(portalPosition, portalInDirection.normalized);
 
     private void OnDrawGizmos() {
         
@@ -35,16 +39,9 @@ public class Portal : MonoBehaviour
         var rb = other.GetComponent<Rigidbody2D>();
         if (!beenTriggered && rb != null) {
             beenTriggered = true;
-            var scaleFactor = levelTransform.localScale.x;
-            var portalPositionOffset = Vector3.Scale(portalPosition,  portalInDirection.normalized);
-            if (Vector3.Dot(rb.velocity.normalized, portalInDirection.normalized) < 0) {
-                scaleFactor = 1/scaleFactor;
-                portalPositionOffset *= -1;
-            }
-            Debug.Log($"Scaling world by {scaleFactor}");
+            var directionIn = Vector3.Dot(rb.velocity.normalized, portalInDirection.normalized) > 0;
 
-            GameManager.Instance.TeleportPlayer(scaleFactor);
-            GameManager.Instance.RespawnPlayer(transform.position + portalPositionOffset);
+            GameManager.Instance.TeleportPlayer(this, directionIn: directionIn);
         }
     }
 }
