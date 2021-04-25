@@ -10,6 +10,20 @@ public class PlayerMovement : MonoBehaviour {
     float horizontalMove = 0f;
     bool jump = false;
 
+    public void Disable()
+    {
+        controller.ToggleFreeze(true);
+        animator.speed = 0;
+        enabled = false;
+    }
+
+    public void Enable()
+    {
+        controller.ToggleFreeze(false);
+        animator.speed = 1;
+        enabled = true;
+    }
+
     private void Awake() {
         controller = GetComponent<CharacterController2D>();
     }
