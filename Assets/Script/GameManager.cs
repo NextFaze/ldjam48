@@ -13,9 +13,11 @@ public class GameManager : MonoBehaviour
     private static GameManager _instance;
     public static GameManager Instance { get { return _instance; } }
 
+    public bool godMode = false;
+
     public Transform levelTransform;
     public Vector3 lastSpawnPosition;
-    public Rigidbody2D playerRigidBody;
+    Rigidbody2D playerRigidBody;
     public int DeathCount {
         get;
         private set;
@@ -72,12 +74,15 @@ public class GameManager : MonoBehaviour
     }
 
     public void KillPlayer() {
+        if (godMode) return;
+
         var player = GameObject.FindWithTag("Player");
         if (!player.GetComponent<PlayerMovement>().enabled)
         {
             return;
         }
         player.GetComponent<PlayerMovement>().Disable();
+
         audioSource.PlayOneShot(deathAudio[UnityEngine.Random.Range(0, deathAudio.Length)], 2F);
         DeathCount++;
         

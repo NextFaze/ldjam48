@@ -4,7 +4,23 @@ using UnityEngine;
 
 public class DeathTrigger : MonoBehaviour
 {
-    private void OnTriggerEnter2D(Collider2D other) {
+
+    void Awake()
+    {
+        if (GameManager.Instance == null)
+        {
+            this.enabled = false;
+            return;
+        }
+    }
+
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        if (GameManager.Instance == null)
+        {
+            return;
+        }
+
         GameManager.Instance.KillPlayer();
     }
 }
