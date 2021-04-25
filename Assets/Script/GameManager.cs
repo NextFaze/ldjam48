@@ -14,6 +14,7 @@ public class GameManager : MonoBehaviour
     public static GameManager Instance { get { return _instance; } }
 
     public bool godMode = false;
+    public bool easeCamera = false;
 
     public Transform worldTransform;
     Vector3 lastSpawnPosition;
@@ -22,6 +23,8 @@ public class GameManager : MonoBehaviour
         get;
         private set;
     }
+
+    public GameObject cloudPrefab;
 
     private AudioSource audioSource;
     public AudioClip start;
@@ -40,6 +43,7 @@ public class GameManager : MonoBehaviour
     }
 
     Stack<Transform> levelTransforms = new Stack<Transform>();
+    public float transitionTime = 1f;
 
     void Start()
     {
@@ -75,7 +79,16 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    private Portal lastPortal;
+    private bool lastDirectionIn = false;
     public void TeleportPlayer(Portal portal, bool directionIn) {
+
+        Debug.Log("Checking portal..");
+        if (portal == lastPortal && directionIn == lastDirectionIn)
+        {
+            Debug.Log("Portal already triggered");
+            return;
+        }
 
         var scaleFactor = portal.ScaleFactor;
         var portalPositionOffset = portal.PortalPositionOffset;
@@ -87,23 +100,25 @@ public class GameManager : MonoBehaviour
         else
         {
             // At the top level, something is fishy
-            if (levelTransforms.Count == 1) return;
+            if (levelTransforms.Count == 1)
+            {
+                Debug.Log("At top level.. aborting");
+                return;
+            }
+
             // Popping out of portal
             levelTransforms.Pop();
             scaleFactor = 1 / scaleFactor;
-            portalPositionOffset *= -1;
+            portalPositionOffset *= (-1);
         }
+
+        lastPortal = portal;
+        lastDirectionIn = directionIn;
 
         // The top of the stack is which 'world' we are in
         var camTransform = levelTransforms.Peek();
 
-        Debug.Log($"Scaling world by {scaleFactor}");
-        worldTransform.localScale /= scaleFactor;
-
-        RespawnPlayer(portal.transform.position + portalPositionOffset);
-
-        var cam = FindObjectOfType<PortalCamera>();
-        cam?.MoveCamera(camTransform.position);
+        StartCoroutine(AnimateWorldTransition(scaleFactor, camTransform.position, playerPos: portal.transform.position + portalPositionOffset));
     }
 
     public void KillPlayer() {
@@ -146,7 +161,55 @@ public class GameManager : MonoBehaviour
         playerRigidBody.isKinematic = false;
     }
 
-     IEnumerator ExecuteAfterTime(float time, VoidCallback callback)
+    IEnumerator AnimateWorldTransition(float scaleFactor, Vector3 camPosition, Vector3 playerPos)
+    {
+        // Effect here?
+        playerRigidBody.gameObject.SetActive(false);
+
+        Debug.Log($"Scaling world by {scaleFactor}");
+        var startScale = worldTransform.localScale;
+        var endScale = worldTransform.localScale / scaleFactor;
+
+        var cam = Camera.main.GetComponent<PortalCamera>();
+        Vector3 camStartPos = cam.transform.position;
+        var camEndPos = camPosition / scaleFactor;
+        float elapsedTime = 0;
+
+        var f = Interpolate.Ease(Interpolate.EaseType.EaseInOutCirc);
+
+        while (elapsedTime < transitionTime)
+        {
+            var percent = elapsedTime / transitionTime;
+            Vector3 camPos;
+            if (easeCamera)
+            {
+                camPos = Interpolate.Ease(f, camStartPos, camEndPos - camStartPos, elapsedTime, transitionTime);
+                worldTransform.localScale = Interpolate.Ease(f, startScale, endScale - startScale, elapsedTime, transitionTime);
+            }
+            else
+            {
+                camPos = Vector3.Lerp(camStartPos, camEndPos, percent);
+                worldTransform.localScale = Vector3.Lerp(startScale, endScale, percent);
+            }
+
+            cam?.MoveCamera(camPos);
+
+            elapsedTime += Time.deltaTime;
+            yield return new WaitForEndOfFrame();
+        }
+
+        worldTransform.localScale = endScale;
+        cam?.MoveCamera(camEndPos);
+
+        var endPlayerPos = playerPos / scaleFactor;
+        playerRigidBody.gameObject.SetActive(true);
+
+        Instantiate(cloudPrefab, endPlayerPos, Quaternion.identity);
+
+        RespawnPlayer(endPlayerPos);
+    }
+
+    IEnumerator ExecuteAfterTime(float time, VoidCallback callback)
     {
         yield return new WaitForSeconds(time);
         callback();

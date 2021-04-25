@@ -24,24 +24,21 @@ public class Portal : MonoBehaviour
     private void OnDrawGizmos() {
         
         Gizmos.color = Color.magenta;
-        // Gizmos.DrawWireSphere(transform.position, .2f);
         Gizmos.DrawLine(transform.position, transform.position + portalInDirection.normalized * transform.lossyScale.z);
-    }
-
-    private void OnTriggerExit2D(Collider2D other) {
-        beenTriggered = false;
     }
     
     private void OnTriggerEnter2D(Collider2D other) {
         Debug.Log($"{name} triggered by {other.name}");
 
-        // TODO: This should check for the player layer ;)
-        var rb = other.GetComponent<Rigidbody2D>();
-        if (!beenTriggered && rb != null) {
-            beenTriggered = true;
-            var directionIn = Vector3.Dot(rb.velocity.normalized, portalInDirection.normalized) > 0;
+        if (other.tag == "Player")
+        {
+            var rb = other.GetComponent<Rigidbody2D>();
+            if (rb != null)
+            {
+                var directionIn = Vector3.Dot(Vector3.right * other.transform.localScale.x, portalInDirection.normalized) > 0;
 
-            GameManager.Instance.TeleportPlayer(this, directionIn: directionIn);
+                GameManager.Instance.TeleportPlayer(this, directionIn: directionIn);
+            }
         }
     }
 }
