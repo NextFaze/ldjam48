@@ -38,6 +38,9 @@ TagManager:
   - 
   - 
   m_SortingLayers:
+  - name: Room Background
+    uniqueID: 492802503
+    locked: 0
   - name: Default
     uniqueID: 0
     locked: 0

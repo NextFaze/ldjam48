@@ -297,7 +297,7 @@ PrefabInstance:
     - target: {fileID: 11921615906126157, guid: 325bda404f94d443d92bc88070622e52, type: 3}
       propertyPath: scene
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 5015282565013703914, guid: 225809b1b905f5044a6885ed977c6a0b, type: 3}
     - target: {fileID: 8284328442069348728, guid: 325bda404f94d443d92bc88070622e52, type: 3}
       propertyPath: m_Name
       value: roomception

@@ -16,7 +16,7 @@ public class GameManager : MonoBehaviour
     public bool godMode = false;
 
     public Transform worldTransform;
-    public Vector3 lastSpawnPosition;
+    Vector3 lastSpawnPosition;
     Rigidbody2D playerRigidBody;
     public int DeathCount {
         get;
@@ -61,6 +61,8 @@ public class GameManager : MonoBehaviour
 
         gameStartTime = DateTime.Now;
         gameEndTime = DateTime.MinValue;
+        levelTransforms.Clear();
+        levelTransforms.Push(worldTransform);
     }
 
     private void Awake() {
@@ -75,7 +77,6 @@ public class GameManager : MonoBehaviour
 
     public void TeleportPlayer(Portal portal, bool directionIn) {
 
-        var camTransform = portal.LevelTransform;
         var scaleFactor = portal.ScaleFactor;
         var portalPositionOffset = portal.PortalPositionOffset;
 
@@ -85,11 +86,16 @@ public class GameManager : MonoBehaviour
         }
         else
         {
+            // At the top level, something is fishy
+            if (levelTransforms.Count == 1) return;
             // Popping out of portal
-            camTransform = levelTransforms.Pop();
+            levelTransforms.Pop();
             scaleFactor = 1 / scaleFactor;
             portalPositionOffset *= -1;
         }
+
+        // The top of the stack is which 'world' we are in
+        var camTransform = levelTransforms.Peek();
 
         Debug.Log($"Scaling world by {scaleFactor}");
         worldTransform.localScale /= scaleFactor;

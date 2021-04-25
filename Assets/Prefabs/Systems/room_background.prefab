@@ -446,7 +446,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8284328442069348731}
   m_Layer: 0
-  m_Name: room_wide
+  m_Name: room_background
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -459,7 +459,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8284328442069348728}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 3, y: 3, z: 1}
   m_Children:
@@ -478,9 +478,25 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 8284328442069348731}
     m_Modifications:
+    - target: {fileID: -7871556540511652807, guid: bc5736cfa8d8942bd8a5d7fd1908faa3, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 3286163911610860551, guid: 4f9f3b4e67c60714c92fe5d5986c4940, type: 3}
+    - target: {fileID: -7871556540511652807, guid: bc5736cfa8d8942bd8a5d7fd1908faa3, type: 3}
+      propertyPath: m_SortingLayer
+      value: -1
+      objectReference: {fileID: 0}
+    - target: {fileID: -7871556540511652807, guid: bc5736cfa8d8942bd8a5d7fd1908faa3, type: 3}
+      propertyPath: m_SortingOrder
+      value: -1
+      objectReference: {fileID: 0}
+    - target: {fileID: -7871556540511652807, guid: bc5736cfa8d8942bd8a5d7fd1908faa3, type: 3}
+      propertyPath: m_SortingLayerID
+      value: 492802503
+      objectReference: {fileID: 0}
     - target: {fileID: -3888481672020999207, guid: bc5736cfa8d8942bd8a5d7fd1908faa3, type: 3}
       propertyPath: m_Name
-      value: room (1)
+      value: Gfx
       objectReference: {fileID: 0}
     - target: {fileID: 8742538545776668643, guid: bc5736cfa8d8942bd8a5d7fd1908faa3, type: 3}
       propertyPath: m_RootOrder
