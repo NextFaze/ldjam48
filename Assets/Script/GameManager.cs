@@ -55,6 +55,7 @@ public class GameManager : MonoBehaviour
             this.enabled = false;
         }
 
+        lastSpawnPosition = player.transform.position;
         playerRigidBody = player.GetComponent<Rigidbody2D>();
         DeathCount = 0;
 
