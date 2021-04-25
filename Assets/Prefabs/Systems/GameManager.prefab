@@ -45,7 +45,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   godMode: 0
+  easeCamera: 1
   worldTransform: {fileID: 0}
+  cloudPrefab: {fileID: 5556613690213350538, guid: 61718a0783df06842b1b24e44b7c2054, type: 3}
   start: {fileID: 8300000, guid: fa6e09cebceaf442f8858e116a74cdbe, type: 3}
   respawnClip: {fileID: 8300000, guid: 16b9bdcced40743808eda5731e3ad445, type: 3}
   deathAudio:
@@ -53,6 +55,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 385a62bf7678bb746ac8dab624103f14, type: 3}
   - {fileID: 8300000, guid: 880b94ae0f1c5174c8eb294e88b8ad40, type: 3}
   - {fileID: 8300000, guid: 1b11363a4bd1e644da95d301dc3d6d3b, type: 3}
+  transitionTime: 0.3
 --- !u!82 &1140813318286246061
 AudioSource:
   m_ObjectHideFlags: 0
