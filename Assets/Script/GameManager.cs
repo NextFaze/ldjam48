@@ -14,6 +14,7 @@ public class GameManager : MonoBehaviour
     public static GameManager Instance { get { return _instance; } }
 
     public bool godMode = false;
+    public bool easeCamera = false;
 
     public Transform worldTransform;
     Vector3 lastSpawnPosition;
@@ -22,6 +23,8 @@ public class GameManager : MonoBehaviour
         get;
         private set;
     }
+
+    public GameObject cloudPrefab;
 
     private AudioSource audioSource;
     public AudioClip start;
@@ -177,10 +180,19 @@ public class GameManager : MonoBehaviour
         while (elapsedTime < transitionTime)
         {
             var percent = elapsedTime / transitionTime;
+            Vector3 camPos;
+            if (easeCamera)
+            {
+                camPos = Interpolate.Ease(f, camStartPos, camEndPos - camStartPos, elapsedTime, transitionTime);
+                worldTransform.localScale = Interpolate.Ease(f, startScale, endScale - startScale, elapsedTime, transitionTime);
+            }
+            else
+            {
+                camPos = Vector3.Lerp(camStartPos, camEndPos, percent);
+                worldTransform.localScale = Vector3.Lerp(startScale, endScale, percent);
+            }
 
-            var c = Interpolate.Ease(f, camStartPos, camEndPos - camStartPos, elapsedTime, transitionTime);
-            worldTransform.localScale = Interpolate.Ease(f, startScale, endScale - startScale, elapsedTime, transitionTime);
-            cam?.MoveCamera(c);
+            cam?.MoveCamera(camPos);
 
             elapsedTime += Time.deltaTime;
             yield return new WaitForEndOfFrame();
@@ -191,6 +203,9 @@ public class GameManager : MonoBehaviour
 
         var endPlayerPos = playerPos / scaleFactor;
         playerRigidBody.gameObject.SetActive(true);
+
+        Instantiate(cloudPrefab, endPlayerPos, Quaternion.identity);
+
         RespawnPlayer(endPlayerPos);
     }
 
