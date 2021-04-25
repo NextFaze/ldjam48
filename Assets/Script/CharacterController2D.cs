@@ -8,6 +8,8 @@ using UnityEngine.Events;
 [RequireComponent(typeof(CapsuleCollider2D))]
 public class CharacterController2D : MonoBehaviour
 {
+    private AudioSource audioSource;
+    public AudioClip jumpAudio;
 	public Animator animator;
 
     // Move player in 2D space
@@ -28,6 +30,7 @@ public class CharacterController2D : MonoBehaviour
     // Use this for initialization
     void Start()
     {
+        audioSource = GetComponent<AudioSource>();
         t = transform;
         r2d = GetComponent<Rigidbody2D>();
         mainCollider = GetComponent<CapsuleCollider2D>();
@@ -76,6 +79,8 @@ public class CharacterController2D : MonoBehaviour
         // Jumping
         if (Input.GetButton("Jump") && isGrounded)
         {
+            
+            audioSource.PlayOneShot(jumpAudio, 0.2F);
             r2d.velocity = new Vector2(r2d.velocity.x, jumpHeight) ;
 			animator.SetTrigger("jump");
         }
