@@ -73,11 +73,11 @@ public class GameManager : MonoBehaviour
 
     public void KillPlayer() {
         var player = GameObject.FindWithTag("Player");
-        //TODO: Replace this
-        // if(!player.GetComponent<CharacterController2D>().enabled) {
-        //     return;
-        // }
-        // player.GetComponent<CharacterController2D>().Disable();
+        if (!player.GetComponent<PlayerMovement>().enabled)
+        {
+            return;
+        }
+        player.GetComponent<PlayerMovement>().Disable();
         audioSource.PlayOneShot(deathAudio[UnityEngine.Random.Range(0, deathAudio.Length)], 2F);
         DeathCount++;
         
@@ -88,8 +88,7 @@ public class GameManager : MonoBehaviour
     public void RevivePlayer () {
         RespawnPlayer(lastSpawnPosition);
         var player = GameObject.FindWithTag("Player");
-        //TODO: Replace this
-        // player.GetComponent<CharacterController2D>().Enable();
+        player.GetComponent<PlayerMovement>().Enable();
     }
 
     public void WinGame() {
