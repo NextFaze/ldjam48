@@ -46,7 +46,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   godMode: 0
   worldTransform: {fileID: 0}
-  lastSpawnPosition: {x: -8.75, y: -2.5, z: 0}
   start: {fileID: 8300000, guid: fa6e09cebceaf442f8858e116a74cdbe, type: 3}
   respawnClip: {fileID: 8300000, guid: 16b9bdcced40743808eda5731e3ad445, type: 3}
   deathAudio:
@@ -66,7 +65,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 1
-  m_Volume: 0.2
+  m_Volume: 0.5
   m_Pitch: 1
   Loop: 0
   Mute: 0
