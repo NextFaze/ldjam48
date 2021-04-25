@@ -23,7 +23,8 @@ public class GameManager : MonoBehaviour
 
     private AudioSource audioSource;
     public AudioClip start;
-    public AudioClip death;
+    public AudioClip respawnClip;
+    public AudioClip[] deathAudio;
 
     public DateTime gameStartTime = DateTime.Now;
     public DateTime gameEndTime = DateTime.MinValue;
@@ -53,7 +54,6 @@ public class GameManager : MonoBehaviour
         playerRigidBody = player.GetComponent<Rigidbody2D>();
         DeathCount = 0;
 
-        audioSource.PlayOneShot(start, 0.7F);
         gameStartTime = DateTime.Now;
         gameEndTime = DateTime.MinValue;
     }
@@ -77,10 +77,11 @@ public class GameManager : MonoBehaviour
             return;
         }
         player.GetComponent<CharacterController2D>().Disable();
-        audioSource.PlayOneShot(death, 0.7F);
+        audioSource.PlayOneShot(deathAudio[UnityEngine.Random.Range(0, deathAudio.Length)], 2F);
         DeathCount++;
         
-        StartCoroutine(ExecuteAfterTime(1.5f, RevivePlayer));
+        StartCoroutine(ExecuteAfterTime(0.1f, () => audioSource.PlayOneShot(respawnClip, 0.7F)));
+        StartCoroutine(ExecuteAfterTime(1.6f, RevivePlayer));
     }
 
     public void RevivePlayer () {

@@ -823,7 +823,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 872.575, y: 0}
-  m_SizeDelta: {x: 142.85007, y: 0}
+  m_SizeDelta: {x: 142.85, y: 0}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!114 &392445556
 MonoBehaviour:
@@ -2102,6 +2102,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 5678283714820558890, guid: 90b8d2e68709c44c89b44b53c2d11100, type: 3}
+      propertyPath: m_Volume
+      value: 0.2
+      objectReference: {fileID: 0}
     - target: {fileID: 6807569695972665991, guid: 90b8d2e68709c44c89b44b53c2d11100, type: 3}
       propertyPath: m_RootOrder
       value: 2
@@ -2120,11 +2124,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6807569695972665991, guid: 90b8d2e68709c44c89b44b53c2d11100, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 6.64
+      value: -4.09
       objectReference: {fileID: 0}
     - target: {fileID: 6807569695972665991, guid: 90b8d2e68709c44c89b44b53c2d11100, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -2.2
+      value: 1.36
       objectReference: {fileID: 0}
     - target: {fileID: 6807569695972665991, guid: 90b8d2e68709c44c89b44b53c2d11100, type: 3}
       propertyPath: m_LocalPosition.z
@@ -2166,6 +2170,10 @@ PrefabInstance:
       propertyPath: mainCamera
       value: 
       objectReference: {fileID: 1148345924}
+    - target: {fileID: 7853322848811346575, guid: 90b8d2e68709c44c89b44b53c2d11100, type: 3}
+      propertyPath: jumpAudio.Array.data[0]
+      value: 
+      objectReference: {fileID: 8300000, guid: 04db07a7013d52a4db08b6e8bf32de9c, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 90b8d2e68709c44c89b44b53c2d11100, type: 3}
 --- !u!1 &1563472416
@@ -2202,7 +2210,12 @@ MonoBehaviour:
   lastSpawnPosition: {x: -8.75, y: -2.5, z: 0}
   playerRigidBody: {fileID: 1831342665}
   start: {fileID: 8300000, guid: fa6e09cebceaf442f8858e116a74cdbe, type: 3}
-  death: {fileID: 8300000, guid: 16b9bdcced40743808eda5731e3ad445, type: 3}
+  respawnClip: {fileID: 0}
+  deathAudio:
+  - {fileID: 8300000, guid: 1bb304c960da102418de4f35d1edb16e, type: 3}
+  - {fileID: 8300000, guid: 385a62bf7678bb746ac8dab624103f14, type: 3}
+  - {fileID: 8300000, guid: 880b94ae0f1c5174c8eb294e88b8ad40, type: 3}
+  - {fileID: 8300000, guid: 1b11363a4bd1e644da95d301dc3d6d3b, type: 3}
 --- !u!4 &1563472418
 Transform:
   m_ObjectHideFlags: 0
@@ -2229,7 +2242,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 1
-  m_Volume: 1
+  m_Volume: 0.2
   m_Pitch: 1
   Loop: 0
   Mute: 0
