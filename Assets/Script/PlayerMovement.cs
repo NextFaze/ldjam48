@@ -20,13 +20,15 @@ public class PlayerMovement : MonoBehaviour {
     public void Disable()
     {
         controller.ToggleFreeze(true);
-        animator.speed = 0;
+        //animator.speed = 0;
+        animator.SetBool("isDead", true);
         enabled = false;
     }
 
     public void Enable()
     {
         controller.ToggleFreeze(false);
+        animator.SetBool("isDead", false);
         animator.speed = 1;
         enabled = true;
     }

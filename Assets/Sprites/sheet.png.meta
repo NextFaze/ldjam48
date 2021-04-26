@@ -107,6 +107,21 @@ TextureImporter:
   - first:
       213: 662046916731068474
     second: cloud_4
+  - first:
+      213: -5679681372999991991
+    second: skull
+  - first:
+      213: -4666756510880264869
+    second: scribble_0
+  - first:
+      213: -3986187285796142972
+    second: scribble_3
+  - first:
+      213: -9218115008462819005
+    second: scribble_1
+  - first:
+      213: 2096794751010941262
+    second: scribble_2
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -235,8 +250,8 @@ TextureImporter:
       name: actor_walk_0
       rect:
         serializedVersion: 2
-        x: 340
-        y: 2733
+        x: 306
+        y: 2763
         width: 55
         height: 180
       alignment: 0
@@ -256,8 +271,8 @@ TextureImporter:
       name: actor_walk_1
       rect:
         serializedVersion: 2
-        x: 426
-        y: 2737
+        x: 394
+        y: 2766
         width: 70
         height: 175
       alignment: 0
@@ -277,8 +292,8 @@ TextureImporter:
       name: actor_walk_2
       rect:
         serializedVersion: 2
-        x: 519
-        y: 2738
+        x: 487
+        y: 2768
         width: 65
         height: 176
       alignment: 0
@@ -298,8 +313,8 @@ TextureImporter:
       name: spike
       rect:
         serializedVersion: 2
-        x: 908
-        y: 2804
+        x: 876
+        y: 2836
         width: 133
         height: 108
       alignment: 0
@@ -319,8 +334,8 @@ TextureImporter:
       name: block_small
       rect:
         serializedVersion: 2
-        x: 1150
-        y: 2818
+        x: 1117
+        y: 2850
         width: 141
         height: 84
       alignment: 0
@@ -340,8 +355,8 @@ TextureImporter:
       name: flag
       rect:
         serializedVersion: 2
-        x: 2539
-        y: 2262
+        x: 2896
+        y: 2264
         width: 187
         height: 579
       alignment: 9
@@ -361,8 +376,8 @@ TextureImporter:
       name: block_tall
       rect:
         serializedVersion: 2
-        x: 2862
-        y: 2191
+        x: 3144
+        y: 2252
         width: 272
         height: 694
       alignment: 0
@@ -382,8 +397,8 @@ TextureImporter:
       name: float_spike
       rect:
         serializedVersion: 2
-        x: 899
-        y: 2592
+        x: 867
+        y: 2624
         width: 152
         height: 152
       alignment: 0
@@ -403,8 +418,8 @@ TextureImporter:
       name: platform
       rect:
         serializedVersion: 2
-        x: 1146
-        y: 2721
+        x: 1114
+        y: 2753
         width: 250
         height: 50
       alignment: 0
@@ -424,8 +439,8 @@ TextureImporter:
       name: sheet_9
       rect:
         serializedVersion: 2
-        x: 2776
-        y: 2275
+        x: 775
+        y: 2400
         width: 32
         height: 512
       alignment: 0
@@ -445,8 +460,8 @@ TextureImporter:
       name: actor_idle_0
       rect:
         serializedVersion: 2
-        x: 237
-        y: 2525
+        x: 201
+        y: 2555
         width: 63
         height: 179
       alignment: 0
@@ -466,8 +481,8 @@ TextureImporter:
       name: actor_idle_1
       rect:
         serializedVersion: 2
-        x: 327
-        y: 2525
+        x: 290
+        y: 2555
         width: 63
         height: 177
       alignment: 0
@@ -487,8 +502,8 @@ TextureImporter:
       name: actor_idle_2
       rect:
         serializedVersion: 2
-        x: 415
-        y: 2525
+        x: 381
+        y: 2555
         width: 64
         height: 177
       alignment: 0
@@ -508,8 +523,8 @@ TextureImporter:
       name: actor_idle_4
       rect:
         serializedVersion: 2
-        x: 491
-        y: 2521
+        x: 456
+        y: 2555
         width: 66
         height: 177
       alignment: 0
@@ -550,8 +565,8 @@ TextureImporter:
       name: sheet_15
       rect:
         serializedVersion: 2
-        x: 232
-        y: 2338
+        x: 200
+        y: 2370
         width: 70
         height: 153
       alignment: 0
@@ -571,8 +586,8 @@ TextureImporter:
       name: sheet_16
       rect:
         serializedVersion: 2
-        x: 325
-        y: 2340
+        x: 293
+        y: 2372
         width: 66
         height: 152
       alignment: 0
@@ -592,8 +607,8 @@ TextureImporter:
       name: sheet_17
       rect:
         serializedVersion: 2
-        x: 413
-        y: 2316
+        x: 381
+        y: 2348
         width: 68
         height: 176
       alignment: 0
@@ -613,8 +628,8 @@ TextureImporter:
       name: actor_jump_0
       rect:
         serializedVersion: 2
-        x: 502
-        y: 2319
+        x: 470
+        y: 2351
         width: 57
         height: 173
       alignment: 0
@@ -634,8 +649,8 @@ TextureImporter:
       name: actor_jump_1
       rect:
         serializedVersion: 2
-        x: 590
-        y: 2319
+        x: 558
+        y: 2351
         width: 61
         height: 171
       alignment: 0
@@ -655,8 +670,8 @@ TextureImporter:
       name: block_wide
       rect:
         serializedVersion: 2
-        x: 1249
-        y: 2214
+        x: 1217
+        y: 2246
         width: 823
         height: 233
       alignment: 0
@@ -676,8 +691,8 @@ TextureImporter:
       name: block_med
       rect:
         serializedVersion: 2
-        x: 2223
-        y: 2281
+        x: 725
+        y: 2206
         width: 217
         height: 141
       alignment: 0
@@ -697,8 +712,8 @@ TextureImporter:
       name: actor_fall_0
       rect:
         serializedVersion: 2
-        x: 224
-        y: 2136
+        x: 192
+        y: 2168
         width: 74
         height: 173
       alignment: 0
@@ -718,8 +733,8 @@ TextureImporter:
       name: actor_fall_1
       rect:
         serializedVersion: 2
-        x: 312
-        y: 2136
+        x: 279
+        y: 2168
         width: 76
         height: 175
       alignment: 0
@@ -739,8 +754,8 @@ TextureImporter:
       name: actor_fall_2
       rect:
         serializedVersion: 2
-        x: 402
-        y: 2136
+        x: 370
+        y: 2168
         width: 75
         height: 173
       alignment: 0
@@ -760,8 +775,8 @@ TextureImporter:
       name: actor_fall_3
       rect:
         serializedVersion: 2
-        x: 493
-        y: 2136
+        x: 461
+        y: 2168
         width: 74
         height: 175
       alignment: 0
@@ -781,8 +796,8 @@ TextureImporter:
       name: sheet_26
       rect:
         serializedVersion: 2
-        x: 655
-        y: 2073
+        x: 622
+        y: 2102
         width: 507
         height: 35
       alignment: 0
@@ -802,8 +817,8 @@ TextureImporter:
       name: block_wide_narrow
       rect:
         serializedVersion: 2
-        x: 1247
-        y: 2043
+        x: 1215
+        y: 2075
         width: 1917
         height: 87
       alignment: 0
@@ -823,8 +838,8 @@ TextureImporter:
       name: room_background
       rect:
         serializedVersion: 2
-        x: 260
-        y: 152
+        x: 229
+        y: 186
         width: 2891
         height: 1822
       alignment: 0
@@ -844,8 +859,8 @@ TextureImporter:
       name: cloud_0
       rect:
         serializedVersion: 2
-        x: 3226
-        y: 1726
+        x: 3194
+        y: 1758
         width: 334
         height: 221
       alignment: 0
@@ -865,8 +880,8 @@ TextureImporter:
       name: block_tall_narrow
       rect:
         serializedVersion: 2
-        x: 3660
-        y: 672
+        x: 3628
+        y: 704
         width: 97
         height: 1290
       alignment: 0
@@ -886,8 +901,8 @@ TextureImporter:
       name: cloud_1
       rect:
         serializedVersion: 2
-        x: 3224
-        y: 1473
+        x: 3192
+        y: 1505
         width: 337
         height: 224
       alignment: 0
@@ -907,8 +922,8 @@ TextureImporter:
       name: cloud_2
       rect:
         serializedVersion: 2
-        x: 3227
-        y: 1221
+        x: 3195
+        y: 1253
         width: 332
         height: 227
       alignment: 0
@@ -928,8 +943,8 @@ TextureImporter:
       name: cloud_3
       rect:
         serializedVersion: 2
-        x: 3228
-        y: 971
+        x: 3196
+        y: 1003
         width: 333
         height: 225
       alignment: 0
@@ -949,8 +964,8 @@ TextureImporter:
       name: cloud_4
       rect:
         serializedVersion: 2
-        x: 3228
-        y: 701
+        x: 3196
+        y: 733
         width: 333
         height: 221
       alignment: 0
@@ -962,6 +977,111 @@ TextureImporter:
       bones: []
       spriteID: a30e560c920103900800000000000000
       internalID: 662046916731068474
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: skull
+      rect:
+        serializedVersion: 2
+        x: 2058
+        y: 2221
+        width: 745
+        height: 707
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 94dbeec22e7bd21b0800000000000000
+      internalID: -5679681372999991991
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: scribble_0
+      rect:
+        serializedVersion: 2
+        x: 1399
+        y: 2842
+        width: 286
+        height: 47
+      alignment: 9
+      pivot: {x: 0.5, y: 0.95}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b5d8dbbcda95c3fb0800000000000000
+      internalID: -4666756510880264869
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: scribble_3
+      rect:
+        serializedVersion: 2
+        x: 1729
+        y: 2577
+        width: 286
+        height: 174
+      alignment: 9
+      pivot: {x: 0.5, y: 0.95}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 48041f588c73ea8c0800000000000000
+      internalID: -3986187285796142972
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: scribble_1
+      rect:
+        serializedVersion: 2
+        x: 1728
+        y: 2823
+        width: 293
+        height: 79
+      alignment: 9
+      pivot: {x: 0.5, y: 0.95}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 34170ed4d3da21080800000000000000
+      internalID: -9218115008462819005
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: scribble_2
+      rect:
+        serializedVersion: 2
+        x: 1386
+        y: 2625
+        width: 286
+        height: 136
+      alignment: 9
+      pivot: {x: 0.5, y: 0.95}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e4929ec77bf491d10800000000000000
+      internalID: 2096794751010941262
       vertices: []
       indices: 
       edges: []
