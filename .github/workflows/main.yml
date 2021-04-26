@@ -87,11 +87,11 @@ jobs:
           targetPlatform:  ${{ matrix.targetPlatform }}
           buildName: fathomless
 
-      - name: Fix MacOS exec
-        if: matrix.targetPlatform == 'StandaloneOSX'
-        run: |
-          cd build/${{ matrix.targetPlatform }}/fathomless.app/Contents/MacOS/
-          chmod -R 777 fathomless
+      # - name: Fix MacOS exec
+      #   if: matrix.targetPlatform == 'StandaloneOSX'
+      #   run: |
+      #     cd build/${{ matrix.targetPlatform }}/fathomless.app/Contents/MacOS/
+      #     chmod -R 777 fathomless
 
       # Output
       - name: Upload Artifacts
@@ -100,14 +100,14 @@ jobs:
           name: Build-${{ matrix.targetPlatform }}
           path: build/${{ matrix.targetPlatform }}
 
-      - name: Create Release
-        id: create_release
-        uses: ncipollo/release-action@v1
-        with:
-          prerelease: true
-          allowUpdates: true
-          body: "Release for LDJam #48"
-          tag: "v0.1"
-          artifacts: 'Build-*'
-          token: ${{ secrets.GITHUB_TOKEN }}
+      # - name: Create Release
+      #   id: create_release
+      #   uses: ncipollo/release-action@v1
+      #   with:
+      #     prerelease: true
+      #     allowUpdates: true
+      #     body: "Release for LDJam #48"
+      #     tag: "v0.1"
+      #     artifacts: 'Build-*'
+      #     token: ${{ secrets.GITHUB_TOKEN }}
 
