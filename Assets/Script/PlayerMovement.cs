@@ -22,6 +22,8 @@ public class PlayerMovement : MonoBehaviour {
         controller.ToggleFreeze(true);
         //animator.speed = 0;
         animator.SetBool("isDead", true);
+        animator.SetBool("isJumping", false);
+        animator.SetBool("isFalling", false);
         enabled = false;
     }
 

@@ -544,8 +544,8 @@ TextureImporter:
       name: portal
       rect:
         serializedVersion: 2
-        x: 1053
-        y: 2170
+        x: 1021
+        y: 2202
         width: 147
         height: 460
       alignment: 0
@@ -990,7 +990,7 @@ TextureImporter:
         width: 745
         height: 707
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
