@@ -4,13 +4,13 @@ TextureImporter:
   internalIDToNameTable:
   - first:
       213: 6530179738444782934
-    second: sheet_0
+    second: actor_walk_0
   - first:
       213: 613435604629981061
-    second: sheet_1
+    second: actor_walk_1
   - first:
       213: -3656531271222932061
-    second: sheet_2
+    second: actor_walk_2
   - first:
       213: 3930011312167392660
     second: spike
@@ -34,16 +34,16 @@ TextureImporter:
     second: sheet_9
   - first:
       213: 3216594195550930655
-    second: sheet_10
+    second: actor_idle_0
   - first:
       213: -3701851516310602662
-    second: sheet_11
+    second: actor_idle_1
   - first:
       213: 5893540339403691780
-    second: sheet_12
+    second: actor_idle_2
   - first:
       213: -1254599994303000284
-    second: sheet_13
+    second: actor_idle_4
   - first:
       213: 1949730731670058941
     second: portal
@@ -58,10 +58,10 @@ TextureImporter:
     second: sheet_17
   - first:
       213: 8636805145482191278
-    second: sheet_18
+    second: actor_jump_0
   - first:
       213: -2218698658706304759
-    second: sheet_19
+    second: actor_jump_1
   - first:
       213: 2562169664635839239
     second: block_wide
@@ -70,16 +70,16 @@ TextureImporter:
     second: block_med
   - first:
       213: 2281915828476810391
-    second: sheet_22
+    second: actor_fall_0
   - first:
       213: -1460219255197261928
-    second: sheet_23
+    second: actor_fall_1
   - first:
       213: -272350928928935694
-    second: sheet_24
+    second: actor_fall_2
   - first:
       213: 3647273195039021549
-    second: sheet_25
+    second: actor_fall_3
   - first:
       213: 3504542958272820299
     second: sheet_26
@@ -91,22 +91,22 @@ TextureImporter:
     second: room_background
   - first:
       213: -3807297515833748856
-    second: sheet_29
+    second: cloud_0
   - first:
       213: 4372381551759688375
     second: block_tall_narrow
   - first:
       213: -8302254863492273045
-    second: sheet_31
+    second: cloud_1
   - first:
       213: -863169582964885348
-    second: sheet_32
+    second: cloud_2
   - first:
       213: -832198905909771304
-    second: sheet_33
+    second: cloud_3
   - first:
       213: 662046916731068474
-    second: sheet_34
+    second: cloud_4
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -232,7 +232,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: sheet_0
+      name: actor_walk_0
       rect:
         serializedVersion: 2
         x: 340
@@ -253,7 +253,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: sheet_1
+      name: actor_walk_1
       rect:
         serializedVersion: 2
         x: 426
@@ -274,7 +274,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: sheet_2
+      name: actor_walk_2
       rect:
         serializedVersion: 2
         x: 519
@@ -442,7 +442,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: sheet_10
+      name: actor_idle_0
       rect:
         serializedVersion: 2
         x: 237
@@ -463,7 +463,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: sheet_11
+      name: actor_idle_1
       rect:
         serializedVersion: 2
         x: 327
@@ -484,7 +484,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: sheet_12
+      name: actor_idle_2
       rect:
         serializedVersion: 2
         x: 415
@@ -505,7 +505,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: sheet_13
+      name: actor_idle_4
       rect:
         serializedVersion: 2
         x: 491
@@ -610,7 +610,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: sheet_18
+      name: actor_jump_0
       rect:
         serializedVersion: 2
         x: 502
@@ -631,7 +631,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: sheet_19
+      name: actor_jump_1
       rect:
         serializedVersion: 2
         x: 590
@@ -694,7 +694,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: sheet_22
+      name: actor_fall_0
       rect:
         serializedVersion: 2
         x: 224
@@ -715,7 +715,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: sheet_23
+      name: actor_fall_1
       rect:
         serializedVersion: 2
         x: 312
@@ -736,7 +736,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: sheet_24
+      name: actor_fall_2
       rect:
         serializedVersion: 2
         x: 402
@@ -757,7 +757,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: sheet_25
+      name: actor_fall_3
       rect:
         serializedVersion: 2
         x: 493
@@ -841,7 +841,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: sheet_29
+      name: cloud_0
       rect:
         serializedVersion: 2
         x: 3226
@@ -883,7 +883,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: sheet_31
+      name: cloud_1
       rect:
         serializedVersion: 2
         x: 3224
@@ -904,7 +904,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: sheet_32
+      name: cloud_2
       rect:
         serializedVersion: 2
         x: 3227
@@ -925,7 +925,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: sheet_33
+      name: cloud_3
       rect:
         serializedVersion: 2
         x: 3228
@@ -946,7 +946,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: sheet_34
+      name: cloud_4
       rect:
         serializedVersion: 2
         x: 3228
