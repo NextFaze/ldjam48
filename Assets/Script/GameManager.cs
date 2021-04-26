@@ -79,6 +79,14 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    private void Update()
+    {
+        if (Application.platform != RuntimePlatform.WebGLPlayer && Input.GetKeyDown(KeyCode.Escape))
+        {
+            Application.Quit();
+        }
+    }
+
     private Portal lastPortal;
     private bool lastDirectionIn = false;
     public void TeleportPlayer(Portal portal, bool directionIn) {

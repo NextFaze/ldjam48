@@ -20,6 +20,11 @@ public class StartUI : MonoBehaviour
 
     void Update()
     {
+        if(Application.platform != RuntimePlatform.WebGLPlayer && Input.GetKeyDown(KeyCode.Escape))
+        {
+            Application.Quit();
+        }
+
         // Press the space key to start coroutine
         if (Input.GetButtonDown("Submit") && loadLevel == null)
         {
