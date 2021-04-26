@@ -50,7 +50,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4605684641126691053}
   m_Layer: 0
-  m_Name: Level_Root
+  m_Name: EasyAlpha
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -409,6 +409,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 4605684641177011463}
     m_Modifications:
+    - target: {fileID: 11921615906126157, guid: 325bda404f94d443d92bc88070622e52, type: 3}
+      propertyPath: scene
+      value: 
+      objectReference: {fileID: 8499019595798461135, guid: 196bedef4a04b6641a0e36bfce1926ac, type: 3}
     - target: {fileID: 8284328442069348728, guid: 325bda404f94d443d92bc88070622e52, type: 3}
       propertyPath: m_Name
       value: roomception
@@ -801,6 +805,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 4605684641177011463}
     m_Modifications:
+    - target: {fileID: 11921615906126157, guid: 325bda404f94d443d92bc88070622e52, type: 3}
+      propertyPath: scene
+      value: 
+      objectReference: {fileID: 2153912213673302951, guid: dec4aa4aa4298a042b773f782ed6a150, type: 3}
     - target: {fileID: 8284328442069348728, guid: 325bda404f94d443d92bc88070622e52, type: 3}
       propertyPath: m_Name
       value: roomception (2)

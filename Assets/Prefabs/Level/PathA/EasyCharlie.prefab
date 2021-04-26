@@ -42,7 +42,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8499019595798461132}
   m_Layer: 0
-  m_Name: Level_Root
+  m_Name: EasyCharlie
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -269,6 +269,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 8499019595748118310}
     m_Modifications:
+    - target: {fileID: 11921615906126157, guid: 325bda404f94d443d92bc88070622e52, type: 3}
+      propertyPath: scene
+      value: 
+      objectReference: {fileID: 5420878271138405545, guid: 343e1e1be371a134c8f48d9f7f2a65be, type: 3}
     - target: {fileID: 8284328442069348728, guid: 325bda404f94d443d92bc88070622e52, type: 3}
       propertyPath: m_Name
       value: roomception (1)
@@ -727,6 +731,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 8499019595748118310}
     m_Modifications:
+    - target: {fileID: 11921615906126157, guid: 325bda404f94d443d92bc88070622e52, type: 3}
+      propertyPath: scene
+      value: 
+      objectReference: {fileID: 7834363285718626024, guid: 37ce144cb47d9104397482a6316b7b7e, type: 3}
     - target: {fileID: 8284328442069348728, guid: 325bda404f94d443d92bc88070622e52, type: 3}
       propertyPath: m_Name
       value: roomception
