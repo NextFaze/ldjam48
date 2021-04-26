@@ -85,11 +85,19 @@ jobs:
           # UNITY_SERIAL: ${{ secrets.UNITY_SERIAL }}
         with:
           targetPlatform:  ${{ matrix.targetPlatform }}
+          buildName: fathomless
+
+      - name: Fix MacOS exec
+        if: ${{ matrix.targetPlatform }} == StandaloneOSX
+        run: |
+          cd build/${{ matrix.targetPlatform }}/fathomless.app/Contents/MacOS/
+          chmod -R 777 fathomless
 
       # Output
       - name: Upload Artifacts
         uses: actions/upload-artifact@v2
         with:
           name: Build-${{ matrix.targetPlatform }}
-          path: build/${{ matrix.targetPlatform }}
+          # path: build/${{ matrix.targetPlatform }}
+          path: build
 
