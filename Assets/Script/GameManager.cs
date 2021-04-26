@@ -109,7 +109,7 @@ public class GameManager : MonoBehaviour
             // Popping out of portal
             levelTransforms.Pop();
             scaleFactor = 1 / scaleFactor;
-            portalPositionOffset *= (-1);
+            portalPositionOffset = portal.PortalOutPositionOffset;
         }
 
         lastPortal = portal;

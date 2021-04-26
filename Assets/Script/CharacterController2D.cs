@@ -4,7 +4,8 @@ using UnityEngine.Events;
 
 public class CharacterController2D : MonoBehaviour
 {
-	[SerializeField] private float m_JumpForce = 400f;							// Amount of force added when the player jumps.
+	[SerializeField] private float m_JumpForce = 400f;                          // Amount of force added when the player jumps.              // A collider that will be disabled when crouching
+	[SerializeField] private float m_JumpGraceTime = 0.2f;
 	[Range(0, 1)] [SerializeField] private float m_CrouchSpeed = .36f;          // Amount of maxSpeed applied to crouching movement. 1 = 100%
 
     [Range(0, .3f)] [SerializeField] private float m_MovementSmoothing = .05f;	// How much to smooth out the movement
@@ -12,7 +13,7 @@ public class CharacterController2D : MonoBehaviour
 	[SerializeField] private LayerMask m_WhatIsGround;							// A mask determining what is ground to the character
 	[SerializeField] private Transform m_GroundCheck;							// A position marking where to check if the player is grounded.
 	[SerializeField] private Transform m_CeilingCheck;							// A position marking where to check for ceilings
-	[SerializeField] private Collider2D m_CrouchDisableCollider;				// A collider that will be disabled when crouching
+	[SerializeField] private Collider2D m_CrouchDisableCollider;  
 
 	const float k_GroundedRadius = .2f; // Radius of the overlap circle to determine if grounded
 	private bool m_Grounded;            // Whether or not the player is grounded.
@@ -20,12 +21,17 @@ public class CharacterController2D : MonoBehaviour
 	private Rigidbody2D m_Rigidbody2D;
 	private bool m_FacingRight = true;  // For determining which way the player is currently facing.
 	private Vector3 m_Velocity = Vector3.zero;
+	private float timeLeftGround = 0f;
+
+	bool justJumped = false;
+	private float airTime => timeLeftGround == 0f ? 0f : Time.time - timeLeftGround;
 
 	[Header("Events")]
 	[Space]
 
 	public UnityEvent OnLandEvent;
 	public UnityEvent OnFallEvent;
+	public UnityEvent OnJumpEvent;
 
 	[System.Serializable]
 	public class BoolEvent : UnityEvent<bool> { }
@@ -54,6 +60,14 @@ public class CharacterController2D : MonoBehaviour
 		bool wasGrounded = m_Grounded;
 		m_Grounded = false;
 
+		// If we just jumped, don't check the ground
+		if (justJumped)
+		{
+			justJumped = false;
+			return;
+		}
+
+
 		// The player is grounded if a circlecast to the groundcheck position hits anything designated as ground
 		// This can be done using layers instead but Sample Assets will not overwrite your project settings.
 		Collider2D[] colliders = Physics2D.OverlapCircleAll(m_GroundCheck.position, k_GroundedRadius, m_WhatIsGround);
@@ -62,6 +76,7 @@ public class CharacterController2D : MonoBehaviour
 			if (colliders[i].gameObject != gameObject)
 			{
 				m_Grounded = true;
+				timeLeftGround = 0f;
 				if (!wasGrounded)
 					OnLandEvent.Invoke();
 			}
@@ -71,6 +86,11 @@ public class CharacterController2D : MonoBehaviour
 			if(m_Rigidbody2D.velocity.y < 0f) {
 				OnFallEvent.Invoke();
 			}
+		}
+
+		if (wasGrounded && !m_Grounded)
+        {
+			timeLeftGround = Time.time;
 		}
 	}
 
@@ -138,10 +158,14 @@ public class CharacterController2D : MonoBehaviour
 			}
 		}
 		// If the player should jump...
-		if (m_Grounded && jump)
+		if ((m_Grounded || airTime <= m_JumpGraceTime) && jump)
 		{
 			// Add a vertical force to the player.
 			m_Grounded = false;
+			timeLeftGround = Time.time;
+			justJumped = true;
+			OnJumpEvent?.Invoke();
+			m_Rigidbody2D.velocity = new Vector2(m_Rigidbody2D.velocity.x, 0);
 			m_Rigidbody2D.AddForce(new Vector2(0f, m_JumpForce));
 		}
 	}

@@ -21,6 +21,7 @@ public class DeathTrigger : MonoBehaviour
             return;
         }
 
+        Debug.Log($"{this.name} killed player");
         GameManager.Instance.KillPlayer();
     }
 }

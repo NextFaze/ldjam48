@@ -184,6 +184,17 @@ PrefabInstance:
       objectReference: {fileID: 1228895602}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9217883a2eb1a4f4b963bb3fdc064655, type: 3}
+--- !u!114 &108341241 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 834190560, guid: 90b8d2e68709c44c89b44b53c2d11100, type: 3}
+  m_PrefabInstance: {fileID: 5907724125668998687}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 58400bbcb1938438bbe951ef30876900, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &415399254
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1064,6 +1075,38 @@ PrefabInstance:
     - target: {fileID: 7278381243892790154, guid: 90b8d2e68709c44c89b44b53c2d11100, type: 3}
       propertyPath: m_Name
       value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 7853322848811346575, guid: 90b8d2e68709c44c89b44b53c2d11100, type: 3}
+      propertyPath: m_JumpGraceTime
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7853322848811346575, guid: 90b8d2e68709c44c89b44b53c2d11100, type: 3}
+      propertyPath: OnJumpEvent.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7853322848811346575, guid: 90b8d2e68709c44c89b44b53c2d11100, type: 3}
+      propertyPath: OnJumpEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7853322848811346575, guid: 90b8d2e68709c44c89b44b53c2d11100, type: 3}
+      propertyPath: OnJumpEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 108341241}
+    - target: {fileID: 7853322848811346575, guid: 90b8d2e68709c44c89b44b53c2d11100, type: 3}
+      propertyPath: OnJumpEvent.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7853322848811346575, guid: 90b8d2e68709c44c89b44b53c2d11100, type: 3}
+      propertyPath: OnJumpEvent.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: OnJump
+      objectReference: {fileID: 0}
+    - target: {fileID: 7853322848811346575, guid: 90b8d2e68709c44c89b44b53c2d11100, type: 3}
+      propertyPath: OnJumpEvent.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: PlayerMovement, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 7853322848811346575, guid: 90b8d2e68709c44c89b44b53c2d11100, type: 3}
+      propertyPath: OnJumpEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 90b8d2e68709c44c89b44b53c2d11100, type: 3}

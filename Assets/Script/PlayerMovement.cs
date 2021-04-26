@@ -8,14 +8,14 @@ public class PlayerMovement : MonoBehaviour {
     public Animator animator;
 
     public float runSpeed =  40f;
+
     float horizontalMove = 0f;
     bool jump = false;
+    private bool hasJumped = false;
 
 
     private AudioSource audioSource;
     public AudioClip[] jumpAudio;
-
-
 
     public void Disable()
     {
@@ -40,14 +40,21 @@ public class PlayerMovement : MonoBehaviour {
         horizontalMove = Input.GetAxisRaw("Horizontal") * runSpeed;
         animator.SetFloat("Speed", Mathf.Abs(horizontalMove));
 
-        if (Input.GetButtonDown("Jump")) {
-            audioSource.PlayOneShot(jumpAudio[UnityEngine.Random.Range(0, jumpAudio.Length)], 2F);
+        if (Input.GetButtonDown("Jump") && !hasJumped) {
             jump = true;
-            animator.SetBool("isJumping", true);
+            hasJumped = true;
         }
     }
+    public void OnJump()
+    {
+        audioSource.PlayOneShot(jumpAudio[UnityEngine.Random.Range(0, jumpAudio.Length)], 2F);
+        animator.SetBool("isJumping", true);
+    }
 
-    public void OnLanding() {
+    public void OnLanding()
+    {
+        Debug.Log("Landed");
+        hasJumped = false;
         animator.SetBool("isJumping", false);
         animator.SetBool("isFalling", false);
     }

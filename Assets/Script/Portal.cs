@@ -16,15 +16,23 @@ public class Portal : MonoBehaviour
     [Tooltip("Offset from the portal's position to move to")]
     Vector3 portalPosition = new Vector3(3.0f, 0.0f, 0.0f);
 
-    bool beenTriggered = false;
+    [SerializeField]
+    [Tooltip("Offset from the portal's position to move to")]
+    Vector3 portalOutPosition = new Vector3(-1.0f, 0.0f, 0.0f);
 
     public float ScaleFactor => levelTransform.localScale.x;
     public Vector3 PortalPositionOffset => Vector3.Scale(portalPosition, portalInDirection.normalized);
+    public Vector3 PortalOutPositionOffset => Vector3.Scale(portalOutPosition, portalInDirection.normalized);
 
     private void OnDrawGizmos() {
         
         Gizmos.color = Color.magenta;
         Gizmos.DrawLine(transform.position, transform.position + portalInDirection.normalized * transform.lossyScale.z);
+
+        Gizmos.color = Color.magenta;
+        Gizmos.DrawWireSphere(this.transform.position + Vector3.Scale(PortalPositionOffset, transform.lossyScale), 0.2f);
+        Gizmos.color = Color.red;
+        Gizmos.DrawWireSphere(this.transform.position + PortalOutPositionOffset, 0.2f);
     }
     
     private void OnTriggerEnter2D(Collider2D other) {

@@ -129,7 +129,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   levelTransform: {fileID: 0}
   portalInDirection: {x: 1, y: 0, z: 0}
-  portalPosition: {x: 0.5, y: 0, z: 0}
+  portalPosition: {x: 0.3, y: 0, z: 0}
+  portalOutPosition: {x: -1, y: 0, z: 0}
 --- !u!61 &-6749004323033357839
 BoxCollider2D:
   m_ObjectHideFlags: 0
