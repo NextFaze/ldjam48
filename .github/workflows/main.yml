@@ -51,7 +51,7 @@ jobs:
           folder: build/WebGL/WebGL # The folder the action should deploy.
 
   build-desktop:
-    name: Build project ✨
+    name: Build Desktop projects ✨
     runs-on: ubuntu-latest
     strategy:
       fail-fast: false
@@ -88,7 +88,7 @@ jobs:
           buildName: fathomless
 
       - name: Fix MacOS exec
-        if: matrix.targetPlatform == StandaloneOSX
+        if: matrix.targetPlatform == "StandaloneOSX"
         run: |
           cd build/${{ matrix.targetPlatform }}/fathomless.app/Contents/MacOS/
           chmod -R 777 fathomless
