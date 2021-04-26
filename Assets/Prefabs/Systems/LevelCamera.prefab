@@ -58,7 +58,7 @@ Camera:
     width: 1
     height: 1
   near clip plane: 0.3
-  far clip plane: 1000
+  far clip plane: 500
   field of view: 60
   orthographic: 1
   orthographic size: 10
@@ -97,6 +97,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 072148bbef7a447acb6d40c39999d4c4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &375599879
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5778516687241097512}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b6ab33b5af944d646889e9c74bd36511, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  offset169: 54
 --- !u!1001 &1040143594468538551
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -385,6 +398,10 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6799942139882740999, guid: f057618522643476fa6d4c5dee4109db, type: 3}
+      propertyPath: m_MatchWidthOrHeight
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6799942139882740999, guid: f057618522643476fa6d4c5dee4109db, type: 3}
       propertyPath: m_ReferenceResolution.x
       value: 960
       objectReference: {fileID: 0}
@@ -422,5 +439,10 @@ PrefabInstance:
 --- !u!224 &5778516687302845874 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 6799942139882740997, guid: f057618522643476fa6d4c5dee4109db, type: 3}
+  m_PrefabInstance: {fileID: 1040143594468538551}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &5778516687241097512 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6799942139667925407, guid: f057618522643476fa6d4c5dee4109db, type: 3}
   m_PrefabInstance: {fileID: 1040143594468538551}
   m_PrefabAsset: {fileID: 0}

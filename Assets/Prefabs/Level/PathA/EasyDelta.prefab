@@ -70,7 +70,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1036698181318126612}
   m_Layer: 0
-  m_Name: Level_Root
+  m_Name: EasyDelta
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2345,6 +2345,10 @@ PrefabInstance:
       propertyPath: levelTransform
       value: 
       objectReference: {fileID: 1036698181318126612}
+    - target: {fileID: 7653422992150923180, guid: 876e70cd310d94080ba6638cc132a950, type: 3}
+      propertyPath: portalOutPosition.x
+      value: -2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 876e70cd310d94080ba6638cc132a950, type: 3}
 --- !u!4 &6702241246419003582 stripped
