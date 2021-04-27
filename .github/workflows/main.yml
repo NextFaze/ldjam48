@@ -87,11 +87,12 @@ jobs:
           targetPlatform:  ${{ matrix.targetPlatform }}
           buildName: fathomless
 
-      # - name: Fix MacOS exec
-      #   if: matrix.targetPlatform == 'StandaloneOSX'
-      #   run: |
-      #     cd build/${{ matrix.targetPlatform }}/fathomless.app/Contents/MacOS/
-      #     chmod -R 777 fathomless
+      - name: Fix MacOS exec
+        if: matrix.targetPlatform == 'StandaloneOSX'
+        continue-on-error: true # If this fails, we can manually run this step
+        run: |
+          cd build/${{ matrix.targetPlatform }}/fathomless.app/Contents/MacOS/
+          sudo chmod -R 777 fathomless
 
       # Output
       - name: Upload Artifacts
