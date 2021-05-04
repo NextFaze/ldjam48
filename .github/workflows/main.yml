@@ -1,71 +1,37 @@
 name: Release on Main 😎
 
 on: 
+  # This allows for manual triggering of the action
   workflow_dispatch:
+  # This will run this action on every push to the main branch - update as required
   push:
     branches:
       - main
 
-jobs:
-  build-webgl:
+jobs:    
+  build-project:
     name: Build project ✨
     runs-on: ubuntu-latest
-    steps:
-      # Checkout
-      - name: Checkout repository
-        uses: actions/checkout@v2
-        with:
-          fetch-depth: 0
-          lfs: true
 
-      # Cache
-      - uses: actions/cache@v2
-        with:
-          path: Library
-          key: Library
+    # Enter in project properties here
+    env:
+      PROJECT_NAME: fathomless
+      RELEASE_VERSION: "0.1.1"
 
-      # Build
-      - name: Build project
-        uses: game-ci/unity-builder@v2
-        env:
-          UNITY_LICENSE: ${{ secrets.UNITY_LICENSE }}
-          ## Use below variables for Professional Serial
-          # UNITY_EMAIL: ${{ secrets.UNITY_EMAIL }}
-          # UNITY_PASSWORD: ${{ secrets.UNITY_PASSWORD }}
-          # UNITY_SERIAL: ${{ secrets.UNITY_SERIAL }}
-        with:
-          targetPlatform: WebGL
-
-      # Output
-      - name: Upload Artifacts
-        uses: actions/upload-artifact@v2
-        with:
-          name: Build
-          path: build
-      
-      #Upload to Pages
-      - name: Deploy to GitHub Pages
-        uses: JamesIves/github-pages-deploy-action@4.1.1
-        with:
-          branch: gh-pages # The branch the action should deploy to.
-          folder: build/WebGL/WebGL # The folder the action should deploy.
-
-  build-desktop:
-    name: Build Desktop projects ✨
-    runs-on: ubuntu-latest
     strategy:
       fail-fast: false
       matrix:
-        targetPlatform:
-          - StandaloneOSX # Build a macOS standalone (Intel 64-bit).
+        targetPlatform:         # These are the definitions from: https://docs.unity3d.com/ScriptReference/BuildTarget.html
+          - StandaloneOSX       # Build a macOS standalone (Intel 64-bit).
           - StandaloneWindows64 # Build a Windows 64-bit standalone.
+          - StandaloneLinux64   # Build a Linux 64-bit standalone
+          - WebGL               # Build for WebGL
 
     steps:
       # Checkout
       - name: Checkout repository
         uses: actions/checkout@v2
         with:
-          fetch-depth: 0
           lfs: true
 
       # Cache
@@ -85,30 +51,49 @@ jobs:
           # UNITY_SERIAL: ${{ secrets.UNITY_SERIAL }}
         with:
           targetPlatform:  ${{ matrix.targetPlatform }}
-          buildName: fathomless
+          buildName: ${{ env.PROJECT_NAME }}
 
-      - name: Fix MacOS exec
+      # We manually compress the MacOS build, as uploading as an Artifact causes issues on MacOS
+      - name: Compress Build (MacOS)
         if: matrix.targetPlatform == 'StandaloneOSX'
-        continue-on-error: true # If this fails, we can manually run this step
         run: |
-          cd build/${{ matrix.targetPlatform }}/fathomless.app/Contents/MacOS/
-          sudo chmod -R 777 fathomless
+          pushd build/${{ matrix.targetPlatform }}
+          sudo zip -r ${{ env.PROJECT_NAME }}-${{ matrix.targetPlatform }}.zip ./${{ env.PROJECT_NAME }}.app
+          popd
+          sudo mv build/${{ matrix.targetPlatform }}/${{ env.PROJECT_NAME }}-${{ matrix.targetPlatform }}.zip build/${{ env.PROJECT_NAME }}-${{ matrix.targetPlatform }}.zip
+          
+      - name: Compress Build
+        if: matrix.targetPlatform != 'StandaloneOSX'
+        run: |
+          pushd build/${{ matrix.targetPlatform }}
+          sudo zip -r ${{ env.PROJECT_NAME }}-${{ matrix.targetPlatform }}.zip ./*
+          popd
+          sudo mv build/${{ matrix.targetPlatform }}/${{ env.PROJECT_NAME }}-${{ matrix.targetPlatform }}.zip build/${{ env.PROJECT_NAME }}-${{ matrix.targetPlatform }}.zip
 
-      # Output
+      # Upload Artifacts
       - name: Upload Artifacts
         uses: actions/upload-artifact@v2
         with:
-          name: Build-${{ matrix.targetPlatform }}
-          path: build/${{ matrix.targetPlatform }}
+          name: ${{ env.PROJECT_NAME }}-${{ matrix.targetPlatform }}
+          path: build/${{ env.PROJECT_NAME }}-${{ matrix.targetPlatform }}.zip
 
-      # - name: Create Release
-      #   id: create_release
-      #   uses: ncipollo/release-action@v1
-      #   with:
-      #     prerelease: true
-      #     allowUpdates: true
-      #     body: "Release for LDJam #48"
-      #     tag: "v0.1"
-      #     artifacts: 'Build-*'
-      #     token: ${{ secrets.GITHUB_TOKEN }}
+      #Upload to Pages (For WebGL builds)
+      - name: Deploy to GitHub Pages
+        uses: JamesIves/github-pages-deploy-action@4.1.1
+        if: matrix.targetPlatform == 'WebGL'
+        with:
+          branch: gh-pages # The branch the action should deploy to.
+          folder: build/WebGL/${{ env.PROJECT_NAME }} # The folder the action should deploy.
+
+      # More details on usage here: https://github.com/marketplace/actions/create-release
+      - name: Create Release
+        id: create_release
+        uses: ncipollo/release-action@v1
+        with:
+          prerelease: true
+          allowUpdates: true
+          tag: ${{ env.RELEASE_VERSION }} # Or what ever tag you want, but there must be a tag!
+          body: "Pre-release"
+          artifacts: 'build/${{ env.PROJECT_NAME }}-${{ matrix.targetPlatform }}.zip'
+          token: ${{ secrets.GITHUB_TOKEN }}
 
